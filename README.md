@@ -15,4 +15,8 @@ The third section of the thesis showcases practical exploits of real security vu
 
 ## Final Version
 The final version of the thesis can be found here:
-[bachelorthesis.pdf](./bachelorthesis.pdf)
+[Thesis](./bachelorthesis.pdf)
+
+## Demonstration Video
+The video demonstration of the RFID keyfob relay attack can be found here:
+[Video](./demo_videos/replay_attack_complete.mp4)
