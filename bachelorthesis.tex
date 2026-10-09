@@ -1,0 +1,75 @@
+\documentclass[11pt]{report}
+\usepackage{tikz}
+\usepackage{graphicx} \DeclareGraphicsExtensions{.eps} \graphicspath{{bilder/eps/}}
+\usepackage{url}
+\usepackage[backend=biber,
+            style=ieee,
+            maxbibnames=20]{biblatex} % to generate the bibliography
+\addbibresource{bachelorthesis.bib}           % name of the bib-file
+
+%definition of page size etc
+\setlength{\textwidth}{15 true cm}
+\setlength{\textheight}{22 true cm}
+\oddsidemargin  0.5 cm
+\evensidemargin 0.5 cm
+\topmargin      0 cm
+
+
+\begin{document}
+
+% -----~* TITLE PAGE *~-----
+\begin{tikzpicture}[remember picture,overlay]
+  \node[xshift=30mm,yshift=00mm,anchor=north west] at (current page.north west){%
+  \includegraphics[width=10mm]{img/general/iti_logo.png}};
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}[remember picture,overlay]
+  \node[xshift=-30mm,yshift=-20mm,anchor=north east] at (current page.north east){%
+  \includegraphics[width=50mm]{img/general/tuglogo.eps}};
+\end{tikzpicture}
+
+\begin{center}
+\vskip6cm
+\fontsize{24pt}{32pt}\selectfont Bachelor Thesis \par
+\vskip1.8cm
+\fontsize{48pt}{36pt}\selectfont \textbf{Automotive Cyber Security:} \par
+\vskip0.3cm
+\fontsize{32pt}{32pt}\selectfont Try out hacking and \\ 
+service tools available for \\
+automotive communication \par
+\vskip6.4cm
+\fontsize{18pt}{20pt}\selectfont Peter Fürlinger \par
+\end{center}
+
+\newpage
+%  -----~* TABLE OF CONTENTS *~-----
+\setcounter{tocdepth}{2}
+\tableofcontents  
+
+% -----~* ABBILDUNGSVERZEICHNIS *~-----
+\listoffigures
+\pagestyle{headings}
+
+% -----~* INTRODUCTION *~-----
+\input{input/introduction}
+
+% -----~* RESSOURCES *~-----
+\input{input/ressources}
+
+% -----~* DEMONSTRATION *~-----
+\input{input/demonstration}
+
+
+
+% -----~* BIBLIOGRAPHY *~-----
+\newpage
+%add to table of contents
+\addtocounter{page}{1}
+%\addcontentsline{toc}{chapter}{Bibliography}
+\addtocounter{page}{-1}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
+
+%TODO Title case in headlines und labels

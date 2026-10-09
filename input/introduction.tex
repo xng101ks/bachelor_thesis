@@ -1,0 +1,46 @@
+\chapter{Introduction}
+
+\section{Communication Attacks}
+As cars are outfitted with more and more sensors, actuators and control modules, the complexity of communication inside a vehicle rises dramatically as well. A car made today can include as many as 60 control units and the electronics inside the vehicle can account for over 20\% of the manufacturing costs. 
+
+As the flow of information inside a vehicle increases, protecting this information from attackers is becoming increasingly important. Otherwise, so-called communication attacks may be carried out by unauthorized parties in order to gather information about or even control over critical systems inside a car. These attacks are a major problem in the automotive sector, which is why regulators and manufacturers have the common goal of preventing them. In order to recreate or prevent such attacks, a substantial amount of documentation about them is needed. Known exploits are thoroughly documented and shared to the public by the aforementioned entities.
+
+This thesis will cover how to gather information about such exploits, how to recreate them as well as which tools are the best fit for such a task. Additionally, a small demonstration will be included.
+
+\section{Difference between safety and security}
+When discussing vulnerabilities, there is an important distinction to make regarding the ways corrupt of a system. It can be either compromised in its security or its safety. 
+Exploiting a system's security can mean exploiting its confidentiality or integrity. An attacker might gain access and/or control over a system, extract protected data or maliciously disable a systems reliability and availability even though they are not allowed to by exploiting system security.
+Exploiting the systems safety means causing harm to people and the environment via a malfunctioning system. 
+Additional care by a systems designers and engineers needs to be taken to ensure the protection of users in case a system malfunctions, especially if it was made to malfunction by a malicious party on purpose. 
+An example of this would all considerations regarding what might happen when a vehicle in motion is remotely turned off or loses one or more of its sensors. In order to ensure adequate safety, the security provided needs to be adequate as well.
+
+\section{Prevention by the governments, UN and NCAP}
+There are numerous agencies whos mission it is to improve vehicle safety. Since communication attacks not only present a security, but often also a safety risk, these entities are continuously working in collaboration with the automotive industry to prevent these types of attacks. Due to the fact that vehicle safety is often closely related to road safety, these types of agencies tend to be created by individual countries or a group of cooperating countries. While road laws are still usually passed and enforced by individual countries, or in the case of the United States on a state-level, these agencies can often influence the qualifications needed by new road cars in order to be registered for public use and therefore influence the entire industries safety standard.
+
+\subsection{National Highway Traffic Safety Administration}
+One of the most important examples of this is the National Highway Traffic Safety Administration. It is a part of the Department of Transportation (DoT) of the United States Federal Government. Since the US is the second-largest automobile manufacturer in the world according to the European Automobile Manufacturers' Association,\cite{acea} and all vehicles on american roads have to adhere to the laws made by its government, the DoT and by extension the NHTSA are an important influence on the design of new cars. The NHTSA regularly gives out Federal Motor Vehicle Safety Standards.\cite{nhtsacybersec} %TODO bessere citation?
+In 2022, the NHTSA released an updated version of the  the ``Cybersecurity Best Practices for
+Modern Vehicles'' (originally released in 2016). While this is not technically a regulation, it presents the industry with a guide for improving vehicle cybersecurity as a whole.\cite{nhtsabestpractice}
+
+\subsection{World Forum for Harmonization of Vehicle Regulations}
+The european equivalent of the NHTSA would be the World Forum for Harmonization of Vehicle Regulations (UNECE WP.29), which is an arm of the United Nations Economic Commission for Europe. It is reponsible for managing an agreement between 64 countries on the general standard for vehicle safety regarding construction, approval and periodic safety inspection for continuous road use. If new technology is developed or a new safety risk is discovered, new regulations are passed in the form of an appendage to the original agreement from 1954.
+Participating countries include the entire European Union as well as non-ECE states such as Thailand and Pakistan. Notable absentees from the list of participating countries are the US and Canada. The former has developed their own standard as mentioned, while the latter has their own system of rules called Canada Motor Vehicle Safety Standards. \cite{unece} %TODO bessere citation?
+In August of 2020, the UN ECE adopted two new regulations regarding cyber security and software updates in road cars (R155 and R156 respectively). These regulations will only take effect once each participating country has implemented them into their road laws. Since the European Union has already issued mandatory compliance dates for all new vehicles, the adoption of these regulations likely will be completed by January 7th 2024 at the latest.
+
+\subsection{Euro NCAP}
+Another notable example of such an entitiy is the European New Car Assesment Programme, which was created in 1996 in order to produce studies and safety ratings for road cars in the European Union. As opposed to the NHTSA, which is able to directly enforce laws, the NCAP merely produces a rating system on the safety of cars. While the NCAP's main focus lies on crash testing, they are also working on an Automotive Cyber-Security Standard, which will help manufacturers secure their vehicles against these kinds of communication attacks. The Euro NCAP will monitor the development of these standards and regulations and may even require a minimum level of security from a manufacturer.\cite{ncaproadmap}
+
+\section{Vulnerability Databases}
+In order to share information about vulnerabilities and make them easier to classify and compare, known vulnerabilities are often collected in databases, where they can easily be catalogued and looked up. These databases are usually collected and maintained either by companies or by non-profit organizations and can be accessed either for free or require payment.
+\subsection{Open Source Vulnerability Database}
+One example of such a database is the ``Open Source Vulnerability Database'', which was founded in August of 2022 as part of the Black Hat and DEFCON Conferences by attendees well-known in the security industry.
+To this day, this project is still entirely maintained by volunteers, including some from a company called ``Risk Based Security''.
+%TODO better citation
+\subsection{MITRE CVE List}
+CVE is the abbreviation for common vulnerabilities and exposures. A CVE describes 
+%TODO better citation
+These CVEs are usually compiled in a searchable list by so called CVE Numbering Authorities (also known as CVEs).
+\subsection{National Vulnerability Database}
+The National Vulnerability Database is maintained by the US government and is among other things fed by the MITRE CVE list. In addition it also features a Common Vulnerability Scoring System (CVSS) for each of its entries. A study in 2017 found the delay between a CVE being discovered and it's admission into the NVD to be about seven days, thus giving hackers a window of oppurtunity to exploit it, since they are often published unofficially before.
+
+%R155 regulations dokumentieren

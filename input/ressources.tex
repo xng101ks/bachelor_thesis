@@ -1,0 +1,198 @@
+\chapter{Ressources}
+\section{Software Tools}
+\subsection{Tools for Traffic Monitoring Fingerprinting}
+\subsubsection{Vehicle Spy}
+Vehicle Spy is a proprietary software developed and sold by Intrepid Control Systems. It is capable of reversing many vehicle communication protocols, including CAN. It is capable of bus monitoring, simulation, diagnostics, memory manipulation and more.
+%TODO cite https://intrepidcs.com/products/software/vehicle-spy/
+
+\subsubsection{Linux Tools (can-utils)}
+Linux supports CAN out of the box and comes packaged with many useful command line utilities to simplify working iwht the CAN bus. The package containing these userspace utilities is called ``can-tools''.
+
+%TODO cite Car Hackers Handbook page 360
+%TODO cite https://github.com/linux-can/can-utils
+Its features include but are not limited to the following:
+\begin{itemize}
+    \item displaying, generating, recording and playing back CAN messages
+    \item access CAN Bus via IP sockets
+    \item bus measurement and testing
+    \item log file conversion
+    \item CMake project generation
+\end{itemize}
+%TODO make sure bus is spelled lowercall all the time
+
+\subsubsection{CANTools/python-can}
+``cantools'', also known as CAN BUS Tools, is a library for python3, which allows encoding and decoding CAN Bus Messages as well as diagnostic DIDs. On top of that it also simplifies parsing files that store recorded CAN messages like DBC, KCD and many more file types.
+It can be installed by simply running the following command (assuming pip is set-up on the system):
+\begin{verbatim}
+    python3 -m pip install cantools
+\end{verbatim}
+In order to actually send and receive messages over a CAN bus another python library called ``python-can'' can be used. This library can also be installed with pip:
+\begin{verbatim}
+    pip install python-can
+\end{verbatim}
+%TODO cite https://github.com/cantools/cantools
+%TODO cite https://python-can.readthedocs.io/en/master/
+
+\subsubsection{Wireshark} \label{wiresharkintro}
+Wireshark is a free and open source packet analyzer available for Unix and Windows Systems. Packet analyzers can be used to examine network traffic in great detail on a packet level or even as raw data. Wireshark is one of the most commonly used applications for this purpose and often referred to as the de facto industry standard.
+%TODO cite https://www.wireshark.org/docs/wsug_html_chunked/ChapterIntroduction.html#ChIntroWhatIs
+
+The software has been continually expanded and developed for use with new protocols since 1997. It currently supports hundreds of protocols including CAN, bluetooth and many more that are commonly used in automotive applications.
+%TODO cite https://www.wireshark.org/docs/wsug_html_chunked/ChIntroHistory.html
+%TODO cite https://www.wireshark.org/docs/dfref/
+
+It supports live data capture from a network interface as well as analyzation of previously recored files. A big benefit of Wiresharks user interface is that packets can be searched, filtered and colorized based on a number of properties, making the visualization of the captured data incredibly easy. In addition to that, packet data can also be saved and exported in a number of formats.
+%TODO cite https://www.wireshark.org/docs/wsug_html_chunked/ChapterIntroduction.html#ChIntroFeatures
+
+%\subsubsection{O2OO Data Logger}
+%no longer exists
+
+%\subsubsection{Kayak}
+%no longer exists
+
+\subsubsection{Caring Caribou}
+Caring Caribou is a sort of penetration testing tool for the automotive space. It is comprised of different modules designed to test different components of a vehicles CAN implementation.
+
+Among many others, Caring Caribou provides a lot of useful features meant to discover security vulnerabilities in a CAN system such as the following:
+\begin{itemize}
+    \item scan for ECUs supporting diagnostic services
+    \item scan for diagnostic services supported by an ECU
+    \item reset an ECU
+    \item dump ECU memory (such as SRAM, flash and bootloader) to file
+    \item scan for ECUs supporting Universal Measurement and Calibration Protocol (XCP)
+    \item fuzzing CAN (sending random CAN messages and brute forcing)
+    \item dumping CAN messages
+    \item send CAN Messages
+    \item listen for CAN messages
+    \item run automated test suites
+\end{itemize}
+
+\subsubsection{SavvyCAN}
+SavyCAN is a free and open source GUI utility designed to simplify reverse engineering and capturing CAN data. The biggest advantage of this tool compared to other packet analyzers is the ability to connect multiple dongles simultaniously and the ability to capture data from very busy bus systems. It additionally also supports many useful file operations from log files such as DBC as well as reverse-engineering capabilities like scanning and decoding diagnostic messages, monitoring traffic from the radio, sniffing the vehicles identification number (VIN) and much more.
+%TODO cite https://www.savvycan.com/
+
+\subsubsection{c0f Fingerprinting Tool}
+This utility can be used to create a fingerprint data traffic of any vehicle just by passively monitoring its CAN messages. This is done by first monitoring about 2000 or more CAN messages using candump (which is part of can-utils mentioned above) or similar. Once this is completed c0f returns JSON data with a lot of useful information like which signals tend to repeat often, the signal with the highest interval rate and said interval rate.
+
+This information can then be added to a database. In the future the developer Craig Smith also plans on shipping the software with a fingerprint database included.
+%TODO cite https://github.com/zombieCraig/c0f
+
+\subsection{Communicating with the CAN Bus}
+\subsubsection{PyOBD Module}
+PyOBD is a car diagnostics tool written entirely in python and a fork of pyOBD developed by SECONS Ltd. It is designed to be used specifically with ELM32x interfaces, which were described above. It is capable of displaying and clearing fault codes, reading live sensor data and reading status tests.
+%todo cite https://github.com/chethenry/pyOBD
+
+
+%\subsubsection{CANiBUS Server}
+%very niche and also archived + read only so probably discontinued
+
+%\subsubsection{AVRDUDESS GUI}
+%not automotive specific + weird
+
+
+\subsection{ECU Simulation and Tuning}
+\subsubsection{UDSim ECU Simulator}
+%https://github.com/zombieCraig/UDSim
+
+\subsection{Instrument Cluster Simulator for SocketCAN}
+%https://github.com/zombieCraig/ICSim
+
+%\subsubsection{RomRaider ECU Tuner}
+%subaru engine only
+
+\section{Hardware Tools}
+\subsection{Software Defined Radio for Radio and RFID attacks}
+A software defined radio is a device capable of sending and receiving radio signals on various frequencies. As opposed to a traditional radio tranceiver, which is made up of analog components, a software defined radio is comprised of only an RF front-end and a digital-to-analog converter (DAC). All of the signal processing, which usually happens in dedicated analog hardware is instead passed off to a general-purpose CPU. This enables the device to communicate over a multitude of different radio protocols.
+
+There are a number of different SDRs on the market. They can be characterized by a number of different factors. The most important property of such a device is the frequency band it operates on. While cheap units can often cover ranges up to 1GHz, devices capable of higher frequency ranges are often more expensive. Another important distinction is whether or not the device is capable of sending signals or just receiving them. The third important classification of SDR is the range it is capable of transmitting over.
+
+SDRs can be used to tune into a specific frequency and capture traffic. An attacker might use this to capture, record, alter or play back any RFID signal used by a vehicle. This is also called a ``Replay Attack'', which will be demonstrated later.
+
+\subsubsection{ADALM-PLUTO}
+ADALM is short for ``Analog Devices Active Learning Module'', which is Analog Devices' line-up of products designed specifically for students and hobbyists. While they are meant to be used with AD's free educational exercises, they are no less feature packed than an off-the-shelf device. Due to the nature of them being learning tools, devices in this lineup are typically very affordable.
+%TODO cite https://www.analog.com/media/en/news-marketing-collateral/solutions-bulletins-brochures/active-learning-program-for-students.pdf
+
+The ADALM-PLUTO is a software defined radio capable of covering a frequency spectrum from 325MHz to 3.8GHz, with up to 20MHz of instantaneous bandwidth. It is able to transmit as well as receive in half or full duplex mode and is very well expandable due to its Matlab Simulink support as well as C, C++, C\# and Python API. It also comes with two antennas, which greatly increases its range.
+%TODO cite https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/adalm-pluto.html
+
+\subsubsection{HackRF SDR}
+The HackRF SDR is another creation from Great Scott Gadgets, which is also the manufacturer of the Ubertooth One. It is a software defined radio designed to be a successor to the Ubertooth, which was discontinued on 22.12.2022 and greatly expands on its capabilities.
+
+It is able to transmit in half-duplex mode only to ensure coverage of most SDR use cases, while still being cost effective. It transmits in a range of 1MHz to 6Ghz. It comes with a powerful software utility, but is also compatible with GNU Radio, SDR\# and more. It can also be configured to operate without a host computer in stand-alone mode.
+%https://greatscottgadgets.com/hackrf/one/
+
+The HackRF does not ship with an antenna, but features SMA connector so they can be bought seperately and connected.
+
+\subsubsection{USRP SDR}
+Universal Software Radio Peripheral (USRP) is a lineup of SDR devices manufactured by Ettus Research, a brand of National Instruments.
+%TODO cite https://www.ettus.com/
+
+Much like the ADALM family of products, it is primarily designed with hobbyists and university students in mind. The devices in this line-up starts from business card sized SDRs costing a few hundred USD up to powerful rackmounted systems with a price point of around 20.000 USD or more.
+
+Along with batteries and cables, antennas can be purchased seperately, as most of these devices feature SMA ports. Daughterboards are also offered to expand the more higher-end SDRs even more.
+%TODO cite https://www.ettus.com/products/
+
+\subsection{Bluetooth Devices}
+\subsubsection{UbertoothOne} \label{ubertoothintroduction}
+Specific Hardware is needed in order to capture and demodulate Bluetooth Signals. One such device is the ``Ubertooth One'', made by Great Scott Gadgets. It was originally conceived by the company's founder Michael Ossmann.\cite{ubertoothabout}
+It is available from multiple vendors, because it is a fully open source device, both in hardware and software terms. This also makes it very affordable.
+It is capable of capturing signals in the 2.4GHz ISM Band, which ranges from 2.4GHz to 2.5GHz and is commonly used for wireless networking. The device is able to transmit and receive in this range with a fairly narrow bandwidth of 1MHz.\cite{ubertoothfaq} ISM is the abbreviation for ``industrial, scientific and medical'', which is an unlicensed short range radio frequency band. Since Bluetooth transmits between 2.4GHz and 2.4835GHz, this makes it possible to sniff both Basic Rate Bluetooth Packets as well as Bluetooth Low Energy Packets.\cite{bluetoothrange}
+The Ubertooth One comprises of an ARM cortex-M3 microcontroller with a wireless transceiver and the necessary RF front end. It is connected to a PC via a USB-port and an antenna can be connected to it using the reverse-polarity SMA interface. The code running on the device is then executed on the host computer, while six different indicator LEDs can be used to supervise the status of the device.%TODO this sounds retarded
+
+The Ubertooth One was discontinued in December of 2022 after 12 years of production. Since SDR devices can also be used for the same tasks, it is superceded by the HackRF platform.
+%https://greatscottgadgets.com/2022/12-22-ubertooth-retirement/
+
+\subsubsection{FlipperZero}
+The FlipperZero is a device developed by Flipper Devices Inc. with the goal of being a swiss army knife for penetration testers. Among other things it contains a software defined radio capable of transceiving signals below 1GHz in a range of up to 50 meters.
+Along with this the FlipperZero also has a built in Bluetooth Low Energy Module, allowing it to pose as both as a host and as a peripheral device. This means the flipper zero can simultaneously connect to a smartphone as well as a third party device.\cite{flipperzero}
+%TODO elaborate
+
+
+\subsection{CAN Devices}
+\subsubsection{Total Phase Komodo CAN Duo}
+The Komodo CAN Duo is a USB-to-CAN adapter featuring two independent customizable channels. It is capable of Transfer Rates up to 1Mbps, indipendent galvanic isolation per CAN channel and eight configurable GPIO-Pins.
+
+Its strength lies in its software and most importantly its API. This can be used to write custom software for the device.
+%TODO incomplete
+\subsubsection{Carloop}
+Carloop is a family of open source development kits that can connect to any OBD-II capable vehicle. They are in essence OBD-II dongles that allow the user to connect their car to cellular networks and access features like GPS-tracking and mileage logging remotely. The products in the carloop family are specifically designed to work with entry-level development kits by Particle Particle Industries, Inc. This means that Particle's extensive cloud infrastructure and community ressources can be utilized to simplify the process of application development on a carloop.
+%TODO cite https://www.carloop.io/
+
+The flagship of the lineup is called Carloop Pro and features an accelerometer, GPS capabilities and can accept an SD-card, to which CAN messages can be logged. A Particle SIM-card is provided, but any cards of other carriers can be used as well. A WiFi version is available as well. Programming of the dongle is done by use of the Particle web IDE provided.
+%TODO cite https://store.carloop.io/products/carloop-pro-1?variant=4847714238500
+
+\subsubsection{Arduino Shield}
+\subsubsection{Freematics OBD-II Telematics Kit}
+\subsubsection{CANtact}
+\subsubsection{Raspberry Pi with a CAN Controller}
+%\subsubsection{ChipKit Max32 Development Board and NetworkShield}
+%website down?
+\subsubsection{GoodThopter Board}
+\subsubsection{CAN232 and CANUSB Interface}
+%\subsubsection{VSCOM Adapter}
+%serial only
+\subsubsection{Korlan USB2CAN Interface}
+\subsubsection{EVTV Due Board}
+\subsubsection{CrossChasm C5 Data Logger}
+\subsubsection{CANBus Triple Board}
+
+
+\subsubsection{ELM327 devices}
+The ELM327 is a microcontroller originally developed by Microchip Technology, Inc. and copied by many other vendors. It is primarily used in PC-to-OBD interfaces and has become the de facto industry standard. 
+Due to its popularity and broad availability, OBD-Interfaces containing this microcontroller can be found for a very cheap price and are available for a number of different communication options like Bluetooth, USB, WiFi and more.
+%TODO find citation
+
+%\subsubsection{ChipWhisperer Toolchain}
+%The ChipWhisperer Toolchain is an open source toolchain for hardware security research consisting of three seperate parts: Hardware, Firmware and Software. 
+%TODO cite https://github.com/newaetech/chipwhisperer
+%not very specific to automotive sector
+
+\subsubsection{Red Pitaya Board}
+The Red Pitaya touts itself as a ``swiss army knife for engineers''. It is an oben source measurement board meant for hobbyists that can provide the same functionality as different devices usually found in expensive laboratories like Oscilloscopes and the likes.
+
+The porduct range currently includes three different boards targeting different price points and use cases. Each board is available in sets including a large number of accessories. Red Pitaya Boards can be used as an oscilloscope, frequency spectrum analyzer, signal generator and be extended by writing custom software for their Matlab, Labview or Python interfaces. Some of their products can also function als SDR devices.
+%TODO cite https://redpitaya.com/
+
+\section{Tool Comparison}
+\subsection{According to budget}
+\subsection{Decision matrix}

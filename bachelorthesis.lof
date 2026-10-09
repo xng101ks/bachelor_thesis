@@ -1,0 +1,21 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Signals along the Bluetooth frequency spectrum}}{17}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The output of Blue Hydra}}{19}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces example output of ubertooth-scan -s -x}}{19}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces packets captured by Ubertooth during BLE communication}}{21}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The vehicle used for this demonstration}}{23}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The SDR used for this demonstration. Source: \blx@tocontentsinit {0}\cite {adalmphoto}}}{24}{}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The parked vehicle with all doors locked}}{25}{}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces The graphical interface for Windows driver installation}}{25}{}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces SDRangel on first startup showing an empty workspace}}{26}{}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The dropdown of available devices after clicking on ``New MIMO device''}}{26}{}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Spectogram and control panel of the new device}}{27}{}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Adding the ``File Sink'' and ``File channel source'' channels}}{27}{}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces The finished workspace}}{28}{}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces SDRangel while capturing the signal}}{29}{}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces SDRangel while capturing the signal}}{30}{}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Host computer and SDR on the vehicle's trunk}}{30}{}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces SDRangel while playing back the signal}}{31}{}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces The vehicle with the unlocked door}}{31}{}%
